@@ -1,7 +1,10 @@
-import { Navbar } from "@/components/Navbar";
+import { Sidebar } from "@/components/Sidebar";
 import { Rail } from "@/components/Rail";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { Editor } from "@/components/Editor";
+import { Chat } from "@/components/Chat";
+import { Statusbar } from "@/components/Statusbar";
 
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
@@ -12,11 +15,11 @@ export default async function Index() {
 
   return (
     <div className="flex flex-col h-[100dvh]">
-      <Navbar />
       <div className="flex grow">
         <Rail />
-        <div>sidebar</div>
-        <div>editor</div>
+        <Sidebar />
+        <Editor />
+        <Chat />
       </div>
     </div>
   );
